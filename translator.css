@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #00feba, #5b548a);
+}
+
+.container{
+    width: 690px;
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 30px;
+}
+
+.wrapper{
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}
+
+.wrapper .text-input{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #bbb;
+}
+
+.text-input .toText{
+    border-radius: 0px;
+    border-radius: 1px solid #bbb;
+}
+
+.text-input textarea{
+    height: 250px;
+    width: 100%;
+    outline: none;
+    border: none;
+    background: none;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    resize: none;
+    background: none;
+}
+
+.controls, li, .icons, .icons i{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.controls{
+    list-style: none;
+    padding: 12px 15px;
+}
+
+.controls .row.from .icons{
+    padding-right: 15px;
+    border-right: 1px solid #bbb;
+}
+
+.controls .row.to .icons{
+    padding-left: 15px;
+    border-left: 1px solid #bbb;
+}
+
+.controls .icons{
+    width: 38%;
+}
+
+.controls .icons i{
+    width: 50px;
+    color: #9f9f9f;
+    font-size: 14px;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.controls .row select{
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 18px;
+}
+
+.controls .exchange{
+    color: #9f9f9f;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.container button{
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 17px;
+    border-radius: 5px;
+    /* background-color: #5372F0; */
+    background: linear-gradient(135deg, #00feba, #5b548a);
+}
+
+@media (max-width: 768px) {
+    .controls {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .controls .row {
+      justify-content: space-between;
+      width: 100%;
+    }
+  
+    .text-input textarea {
+      height: 150px;
+      font-size: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 20px 15px;
+    }
+  
+    .controls .icons i {
+      width: 35px;
+      height: 35px;
+      font-size: 14px;
+    }
+  
+    .controls .row select {
+      font-size: 14px;
+    }
+  
+    .text-input textarea {
+      font-size: 14px;
+      height: 130px;
+    }
+  
+    .container button {
+      font-size: 16px;
+      padding: 12px;
+    }
+  }
