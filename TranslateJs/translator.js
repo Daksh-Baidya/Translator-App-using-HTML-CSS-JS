@@ -58,18 +58,24 @@ translateBtn.addEventListener("click", () => {
 fromText.addEventListener("keydown", (e) => {
     if(e.key == "Enter") {
         const text = fromText.value
-        let translateFrom = selectTag[0].value
-        let translateTo = selectTag[1].value
-        if(!text){
-            toText.setAttribute("placeholder", "Translating...")
-            return;
-        }
-        let apiUrl = `https://api.mymemory.translated.net/get?q=${text}&langpair=${translateFrom}|${translateTo}`
-        fetch(apiUrl).then(res => res.json()).then(data => {
-            toText.value = data.responseData.translatedText
-            toText.setAttribute("placeholder", "Translation")
+    let translateFrom = selectTag[0].value
+    let translateTo = selectTag[1].value
+    if (!text.trim()) {
+        toText.setAttribute("placeholder", "Translation");
+        return;
+      }
+      toText.setAttribute("placeholder", "Translating...");
+      
+    let apiUrl = `https://api.mymemory.translated.net/get?q=${text}&langpair=${translateFrom}|${translateTo}`
+    fetch(apiUrl).then(res => res.json()).then(data => {
+        toText.value = data.responseData.translatedText
+        data.matches.forEach(data => {
+            if(data.id === 0){
+                toText.value = data.translation
+            }
         })
-
+        toText.setAttribute("placeholder", "Translation")
+    })
     }
 })
 icons.forEach(icon => {
@@ -92,4 +98,4 @@ icons.forEach(icon => {
             speechSynthesis.speak(speech)
         }
     })
-}) 
+})
